@@ -1,0 +1,62 @@
+---
+title: "Nicho Ecológico de *Aedes aegypti* en el área Metropolitana de la Ciudad de México con XGBoost"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Nicho Ecológico de *Aedes aegypti* en el área Metropolitana de la Ciudad de México con XGBoost}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Objetivo
+
+### Predicting the presence of *Aedes aegypti* in the Metropolitan Area of Mexico City using XGBoost
+
+## Load the pkg
+
+```{r setup}
+library(aegypticdmx)
+## R
+library(tidyverse) # Conjunto de paquetes para manejo de datos
+library(magrittr) # Pipe
+library(tidymodels) # Machine Learning en R
+library(skimr) # Descriptivas univariadas masivas
+library(bonsai) # LightGBM
+## Balanceo
+library(themis) # Upsampling - downsampling
+## Estos son para hacer computacion en paralelo en Windows
+library(parallel)
+library(doParallel)
+
+```
+
+## Load the dengue dataset and the area of interes
+
+```{r load_dataset, warning=FALSE, message=FALSE}
+# Step 1.1 load the dataset ####
+data <- aegypticdmx::ae_aegypti_cdmx
+
+# Step 1.2 load the area of interes ####
+aoi <- aegypticdmx::ua_cdmx
+
+```
+
+### map the dataset
+
+```{r map_dengue_cases,  warning=FALSE, message=FALSE}
+mapview::mapview(data,
+                 layer.name = "Aedes aegypti",
+                 zcol = "class") +
+    mapview::mapview(aoi,
+                     legend = FALSE)
+```
+
+
+
