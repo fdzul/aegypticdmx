@@ -484,3 +484,42 @@ workflows::extract_fit_parsnip() |>
                                 fill = "black",
                                 size = 1))
 ```
+
+
+## Predicción
+
+### Subir las capas
+
+```{r layers, warning=FALSE, message=FALSE}
+library(tidyterra)
+layers <- terra::rast(system.file("extdata",
+                                       "lyr_cdmx.tif",
+                                       package = "aegypticdmx")) |>
+    dplyr::mutate(temperature = temperature/1000) |>
+    dplyr::select(-suhi_day, -suhi_night, -wordcover) |>
+    dplyr::rename(hfp = hfp2022)
+```
+
+### Hacer la predicción
+
+```{r pred, warning=FALSE, message=FALSE}
+prediction <- tidysdm::predict_raster(object = xgb_fitted, 
+                                      raster = layers,
+                                      type = "prob")
+```
+
+### Extraer la predicciones del area de interes
+
+```{r extraer_pred, warning=FALSE, message=FALSE}
+pred <- terra::crop(x = prediction,
+                    y = aoi,
+                    mask = TRUE)
+```
+
+### Visualizar las predicciones
+
+```{r visualizacion, warning=FALSE, message=FALSE}
+mapview::mapview(pred,
+                 layer.name = "Probabilidad",
+                 zcol = ".pred_presence")
+```
