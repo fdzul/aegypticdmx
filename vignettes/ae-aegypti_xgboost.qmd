@@ -42,7 +42,7 @@ library(aegypticdmx)
 data <- aegypticdmx::ae_aegypti_cdmx
 
 # Step 1.2 load the area of interes ####
-load("8.RData/study_area/urban_area_mzmv.RData")
+cdmx <- aegypticdmx::ua_cdmx
 
 ```
 
@@ -52,6 +52,8 @@ load("8.RData/study_area/urban_area_mzmv.RData")
 mapview::mapview(data,
                  layer.name = "Aedes aegypti",
                  zcol = "class") +
-    mapview::mapview(mzmv,
+    mapview::mapview(cdmx,
                      legend = FALSE)
 ```
+
+

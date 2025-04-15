@@ -39,7 +39,6 @@
 #' @source \url{https://zenodo.org/records/14145245}
 #' @details The Ae. aegypti database was used to model the probability of presence in the urban area of ​​the Mexico City metropolitan area using machine learning algorithms (XGBoost and LightGBM).
 "ae_aegypti_cdmx"
-
 #' ua_cdmx
 #'
 #' global urban area of cdmx
@@ -52,4 +51,4 @@
 #' }
 #' @source \url{https://dataforgood.facebook.com/dfg/tools/globalurbanareas}
 #' @details The urban area of the metropolitan area of Mexico City was the global urban areas of Facebook meta
-"ae_aegypti_cdmx"
+"ua_cdmx"

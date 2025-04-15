@@ -39,32 +39,17 @@ A sf object with 341 rows and 30 variables:
   \item{geometry}{simple feature.}
   ...
 }
-
-A sf object with 341 rows and 30 variables:
-\describe{
-  \item{id}{id of cdmx (383.}
-  \item{geometry}{simple feature.}
-  ...
-}
 }
 \source{
 \url{https://zenodo.org/records/14145245}
-
-\url{https://dataforgood.facebook.com/dfg/tools/globalurbanareas}
 }
 \usage{
-ae_aegypti_cdmx
-
 ae_aegypti_cdmx
 }
 \description{
 An Aedes aegypti dataset from the urban area of the metropolitan zone of Mexico City
-
-global urban area of cdmx
 }
 \details{
 The Ae. aegypti database was used to model the probability of presence in the urban area of ​​the Mexico City metropolitan area using machine learning algorithms (XGBoost and LightGBM).
-
-The urban area of the metropolitan area of Mexico City was the global urban areas of Facebook meta
 }
 \keyword{datasets}
