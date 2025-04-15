@@ -2,5 +2,5 @@ pandoc: '3.2'
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
-  ae-aegypti_xgboost: ae-aegypti_xgboost.html
-last_built: 2025-04-15T03:41Z
+  aedes-aegypti-xgboos: aedes-aegypti-xgboos.html
+last_built: 2025-04-15T03:52Z
